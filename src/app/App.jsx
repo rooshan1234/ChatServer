@@ -1,11 +1,11 @@
 import React from "react";
-import {Button, Dropdown, Card, Image, Icon} from "semantic-ui-react";
+import {Button, Dropdown, Card, Image, Icon, Flag} from "semantic-ui-react";
 
 class App extends React.Component {
     render() {
         return (
             <Card>
-            <Image src='/images/avatar/large/matthew.png' wrapped ui={false} />
+            <Button>Click Me.</Button>
             <Card.Content>
               <Card.Header>Matthew</Card.Header>
               <Card.Meta>
