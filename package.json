@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "webpack  --config config/webpack.config.js --mode development"
+        "start": "webpack-dev-server --open --mode development",
+        "build": "webpack --mode development"
     },
     "keywords": [],
     "author": "",
@@ -27,7 +28,8 @@
         "semantic-ui-less": "^2.4.1",
         "url-loader": "^2.2.0",
         "webpack": "^4.41.2",
-        "webpack-cli": "^3.3.10"
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0"
     },
     "dependencies": {}
 }

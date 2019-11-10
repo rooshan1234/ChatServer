@@ -4,10 +4,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './entry/index.jsx',
+    entry: './src/index.jsx',
     resolve: {
         alias: {
-            "../../theme.config$": path.join(__dirname, '../semantic-ui-theme/theme.config')
+            "../../theme.config$": path.join(__dirname, 'semantic-ui-theme/theme.config')
         }
     },
     optimization: {
@@ -20,6 +20,11 @@ module.exports = {
         filename: '[name].bundle.js',
         chunkFilename: '[name].bundle.js',
         path: path.resolve(__dirname, '../dist'),
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 9000
     },
     module: {
         rules: [{
@@ -70,7 +75,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebPackPlugin({
-            template: "./entry/index.html",
+            template: "./src/index.html",
             filename: "./index.html"
         }),
         new MiniCssExtractPlugin({
