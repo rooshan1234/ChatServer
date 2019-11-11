@@ -1,5 +1,6 @@
 import React from "react";
 import { Menu, Input } from "semantic-ui-react";
+import { Switch, Route, NavLink } from "react-router-dom";
 import ChatContainer from "./ChatContainer";
 
 class App extends React.Component {
@@ -7,8 +8,8 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Menu>
-          <Menu.Item active name="messages" />
-          <Menu.Item name="friends" />
+          <Menu.Item active as={NavLink} to={"/"} name="chat" />
+          <Menu.Item name="friends" as={NavLink} to={"/friends"} />
           <Menu.Menu position="right">
             <Menu.Item>
               <Input icon="search" placeholder="Search..." />
@@ -16,7 +17,15 @@ class App extends React.Component {
             <Menu.Item name="logout" />
           </Menu.Menu>
         </Menu>
-        <ChatContainer></ChatContainer>
+        <Switch>
+          <Route
+            path={"/friends"}
+            render={props => {
+              return <h3>Friends Tab!</h3>;
+            }}
+          ></Route>
+          <Route path={"/"} component={ChatContainer}></Route>
+        </Switch>
       </React.Fragment>
     );
   }
