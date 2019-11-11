@@ -7,14 +7,15 @@ function messages(state = [], action) {
                 chats: state.chats.map(chat => {
                     if (chat.id === action.chat_id) {
                         // chat is found
+                        // we don't mutate the state here as per the rules of redux-store
                         return Object.assign({}, chat, {
                             // update the list of messages for that chat
                             messages: [
                                 ...chat.messages,
                                 {
-                                    sender_user_id: action.sender_user_id,
-                                    receiver_user_id: action.receiver_user_id,
-                                    text: action.text
+                                    text: action.text,
+                                    user_id: action.user_id,
+                                    message_type: action.message_type
                                 }
                             ]
                         });

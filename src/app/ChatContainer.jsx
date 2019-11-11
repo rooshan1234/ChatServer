@@ -1,16 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
-import {
-  Switch,
-  Route,
-  useRouteMatch,
-  withRouter,
-  Link
-} from "react-router-dom";
+import { Route, withRouter, Redirect } from "react-router-dom";
 import { Grid, Card, Segment, Container, Form } from "semantic-ui-react";
-import { addMessage } from "./actions/chat-actions.js";
+
 import FriendsList from "./FriendsList";
-import Messages from "./Messages";
+import Chat from "./Chat.jsx";
 
 class ChatContainer extends React.Component {
   render() {
@@ -29,36 +22,14 @@ class ChatContainer extends React.Component {
                       <FriendsList></FriendsList>
                     </Grid.Column>
                     <Grid.Column width={12}>
-                      <Segment>
-                        <Route
-                          path={"/chat/:chatId"}
-                          render={props => {
-                            return (
-                              <Messages
-                                chatId={props.match.params.chatId}
-                              ></Messages>
-                            );
-                          }}
-                        ></Route>
-                      </Segment>
-                      <Segment attached="bottom">
-                        <Container fluid>
-                          <Form
-                            onSubmit={e => {
-                              e.preventDefault();
-                              this.props.addMessageToChat();
-                            }}
-                          >
-                            <Form.Group>
-                              <Form.TextArea
-                                width={16}
-                                placeholder="Message..."
-                              />
-                              <Form.Button content="Send" />
-                            </Form.Group>
-                          </Form>
-                        </Container>
-                      </Segment>
+                      <Route
+                        path={"/chat/:chatId"}
+                        render={props => {
+                          return (
+                            <Chat chatId={props.match.params.chatId}></Chat>
+                          );
+                        }}
+                      ></Route>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
@@ -66,18 +37,10 @@ class ChatContainer extends React.Component {
             </Card>
           </Grid.Column>
         </Grid>
+        <Redirect from="/" exact to="/chat/1" />
       </React.Fragment>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  addMessageToChat: () => dispatch(addMessage("1", 1, 1, "abc"))
-});
-
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps
-  )(ChatContainer)
-);
+export default withRouter(ChatContainer);

@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  useRouteMatch,
-  NavLink
-} from "react-router-dom";
+import { BrowserRouter as Router, NavLink } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 
 class FriendsList extends React.Component {

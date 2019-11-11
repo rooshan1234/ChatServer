@@ -3,19 +3,37 @@ import ReactDOM from "react-dom";
 import React from "react";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import App from "./app/App.jsx";
 import messages from "./app/reducers/chat-reducers.js";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import ChatContainer from "./app/ChatContainer.jsx";
 
 const initialState = {
+  // will remain constant
+  recipient_user_id: "2",
+  // all on-going chats
   chats: [
     {
       id: "1",
       messages: [
-        { sender_user_id: 1, receiver_user_id: 2, text: "abc" },
-        { sender_user_id: 1, receiver_user_id: 2, text: "abc" }
+        { text: "abc", user_id: "1", message_type: "sent" },
+        { text: "abc", user_id: "2", message_type: "recieved" }
       ]
+    }
+  ],
+  // users in the system
+  users: [
+    {
+      id: "1",
+      name: "Victoria",
+      avatar_url:
+        "https://react.semantic-ui.com/images/avatar/small/lindsay.png"
+    },
+    {
+      id: "2",
+      name: "Rooshan",
+      avatar_url:
+        "https://react.semantic-ui.com/images/avatar/small/matthew.png"
     }
   ]
 };

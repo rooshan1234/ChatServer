@@ -1,11 +1,11 @@
 export const ADD_MESSAGE = "ADD_MESSAGE";
 
-export function addMessage(chat_id, sender_user_id, receiver_user_id, text) {
+export function addMessage(chat_id, text, user_id, message_type) {
     return {
         type: ADD_MESSAGE,
         chat_id,
-        sender_user_id,
-        receiver_user_id,
-        text
+        text,
+        user_id,
+        message_type
     };
 }

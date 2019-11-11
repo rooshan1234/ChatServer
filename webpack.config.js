@@ -45,10 +45,7 @@ module.exports = {
                     // used to convert our .js and .jsx files into readable
                     // js files for the browser after running it through babel
                     // transformations (ES6 and React)
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"]
-                    }
+                    loader: "babel-loader"
                 }
             },
             {
