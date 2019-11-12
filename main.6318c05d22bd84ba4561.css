@@ -19,3 +19,8 @@
   justify-content: center;
 }
 
+.src-app-chat-ChatStyles__messagesList--2yzYa {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
