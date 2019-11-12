@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { addMessage } from "../../actions/chat-actions.js";
+import styles from "./SendMessageForm.less";
 
 class SendMessageForm extends React.Component {
   constructor(props) {
@@ -42,7 +43,11 @@ class SendMessageForm extends React.Component {
             value={text}
             onChange={this.handleChange}
           />
-          <Form.Button content="Send" />
+          <Form.Button
+            className={styles.sendButton}
+            color={"blue"}
+            content="Send"
+          />
         </Form.Group>
       </Form>
     );

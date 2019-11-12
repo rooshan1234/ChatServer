@@ -10,7 +10,7 @@ import messages from "./app/reducers/chat-reducers.js";
 
 const initialState = {
   // will remain constant
-  recipient_user_id: "2",
+  recipient_user_id: "1",
   // all on-going chats
   chats: [
     {
@@ -19,10 +19,42 @@ const initialState = {
         {
           text:
             "Froggos have a little joke, that the world is so hard a man must have two fathers to look after him, and that's why they have God Froggers",
-          user_id: "1",
+          user_id: "2",
           message_type: "sent"
         },
-        { text: "abc", user_id: "2", message_type: "recieved" }
+        {
+          text: "I'll make him an ofer he can't refuse.",
+          user_id: "1",
+          message_type: "recieved"
+        },
+        {
+          text:
+            "The froggo with the long tongue can steal more fies than the man with the gun",
+          user_id: "1",
+          message_type: "recieved"
+        }
+      ]
+    },
+    {
+      id: "2",
+      messages: [
+        {
+          text: "Froggos love playing basketball!",
+          user_id: "3",
+          message_type: "sent"
+        },
+        { text: "Liar Liar!", user_id: "1", message_type: "recieved" }
+      ]
+    },
+    {
+      id: "3",
+      messages: [
+        {
+          text: "Vito can't touch this!",
+          user_id: "4",
+          message_type: "sent"
+        },
+        { text: "Hammer time!", user_id: "1", message_type: "recieved" }
       ]
     }
   ],
@@ -32,25 +64,23 @@ const initialState = {
       id: "1",
       name: "Vito Croakleone",
       avatar_url:
-        "https://react.semantic-ui.com/images/avatar/small/lindsay.png"
+        "https://react.semantic-ui.com/images/avatar/small/matthew.png"
     },
     {
       id: "2",
       name: "Sonny",
-      avatar_url:
-        "https://react.semantic-ui.com/images/avatar/small/matthew.png"
+      avatar_url: "https://react.semantic-ui.com/images/avatar/small/tom.jpg"
     },
     {
       id: "3",
       name: "Fredo",
-      avatar_url:
-        "https://react.semantic-ui.com/images/avatar/small/matthew.png"
+      avatar_url: "https://react.semantic-ui.com/images/avatar/small/matt.jpg"
     },
     {
       id: "4",
       name: "Michael",
       avatar_url:
-        "https://react.semantic-ui.com/images/avatar/small/matthew.png"
+        "https://react.semantic-ui.com/images/avatar/small/christian.jpg"
     }
   ]
 };

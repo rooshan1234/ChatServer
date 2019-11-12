@@ -38,10 +38,15 @@ class Messages extends React.Component {
               <List.Item key={index}>
                 <Image floated={"right"} avatar src={user.avatar_url} />
                 <List.Content floated={"right"}>
-                  <List.Header className={styles.nameAlign} as="a">
+                  <List.Header
+                    className={styles.recievedMessageSenderName}
+                    as="a"
+                  >
                     {user.name}
                   </List.Header>
-                  <List.Description className={styles.messageDescription}>
+                  <List.Description
+                    className={styles.recievedMessageDescription}
+                  >
                     {message.text}
                   </List.Description>
                 </List.Content>
@@ -53,7 +58,7 @@ class Messages extends React.Component {
                 <Image floated={"left"} avatar src={user.avatar_url} />
                 <List.Content floated={"left"}>
                   <List.Header as="a">{user.name}</List.Header>
-                  <List.Description className={styles.messageDescription}>
+                  <List.Description className={styles.sentMessageDescription}>
                     {message.text}
                   </List.Description>
                 </List.Content>

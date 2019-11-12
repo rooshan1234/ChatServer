@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Input } from "semantic-ui-react";
+import { Menu, Icon } from "semantic-ui-react";
 import { Switch, Route, NavLink } from "react-router-dom";
 import ChatContainer from "../layouts/FriendsAndChatLayout";
 
@@ -12,7 +12,7 @@ class App extends React.Component {
           <Menu.Item name="friends" as={NavLink} to={"/friends"} />
           <Menu.Menu position="right">
             <Menu.Item>
-              <Input icon="search" placeholder="Search..." />
+              <Icon name="setting" size="large" />
             </Menu.Item>
             <Menu.Item name="logout" />
           </Menu.Menu>

@@ -1,6 +1,6 @@
 import React from "react";
-import { withRouter, Redirect } from "react-router-dom";
-import { Grid, Card } from "semantic-ui-react";
+import { withRouter } from "react-router-dom";
+import { Grid, Card, Image } from "semantic-ui-react";
 
 import FriendsList from "../chat/friends/FriendsList";
 import Chat from "../chat/Chat";
@@ -13,7 +13,13 @@ class ChatContainer extends React.Component {
           <Grid.Column>
             <Card fluid>
               <Card.Content>
-                <Card.Header> Quick Chat </Card.Header>
+                <Image
+                  floated="right"
+                  avatar
+                  src="https://react.semantic-ui.com/images/avatar/small/matthew.png"
+                />
+                <Card.Header> Frog Bother Chat </Card.Header>
+                <Card.Meta>Vito Croakleone</Card.Meta>
               </Card.Content>
               <Card.Content>
                 <Grid centered container columns={2}>
@@ -32,7 +38,6 @@ class ChatContainer extends React.Component {
             </Card>
           </Grid.Column>
         </Grid>
-        <Redirect from="/" exact to="/chat/1" />
       </React.Fragment>
     );
   }
