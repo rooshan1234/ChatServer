@@ -39,11 +39,14 @@ class Messages extends React.Component {
                 <Image floated={"right"} avatar src={user.avatar_url} />
                 <List.Content floated={"right"}>
                   <List.Header
-                    className={styles.recievedMessageSenderName}
+                    className={styles.recievedMessageSenderNameAndDate}
                     as="a"
                   >
                     {user.name}
                   </List.Header>
+                  <div className={styles.recievedMessageSenderNameAndDate}>
+                    {message.date_message_sent}
+                  </div>
                   <List.Description
                     className={styles.recievedMessageDescription}
                   >
@@ -58,6 +61,9 @@ class Messages extends React.Component {
                 <Image floated={"left"} avatar src={user.avatar_url} />
                 <List.Content floated={"left"}>
                   <List.Header as="a">{user.name}</List.Header>
+                  <div className={styles.sentMessageSenderNameAndDate}>
+                    {message.date_message_sent}
+                  </div>
                   <List.Description className={styles.sentMessageDescription}>
                     {message.text}
                   </List.Description>

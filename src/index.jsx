@@ -20,18 +20,21 @@ const initialState = {
           text:
             "Froggos have a little joke, that the world is so hard a man must have two fathers to look after him, and that's why they have God Froggers",
           user_id: "2",
-          message_type: "sent"
+          message_type: "sent",
+          date_message_sent: "2019-10-10"
         },
         {
           text: "I'll make him an ofer he can't refuse.",
           user_id: "1",
-          message_type: "recieved"
+          message_type: "recieved",
+          date_message_sent: "2019-10-11"
         },
         {
           text:
             "The froggo with the long tongue can steal more fies than the man with the gun",
           user_id: "1",
-          message_type: "recieved"
+          message_type: "recieved",
+          date_message_sent: "2019-10-12"
         }
       ]
     },
@@ -41,9 +44,15 @@ const initialState = {
         {
           text: "Froggos love playing basketball!",
           user_id: "3",
-          message_type: "sent"
+          message_type: "sent",
+          date_message_sent: "2019-11-02"
         },
-        { text: "Liar Liar!", user_id: "1", message_type: "recieved" }
+        {
+          text: "Liar Liar!",
+          user_id: "1",
+          message_type: "recieved",
+          date_message_sent: "2019-11-03"
+        }
       ]
     },
     {
@@ -52,9 +61,15 @@ const initialState = {
         {
           text: "Vito can't touch this!",
           user_id: "4",
-          message_type: "sent"
+          message_type: "sent",
+          date_message_sent: "2019-09-22"
         },
-        { text: "Hammer time!", user_id: "1", message_type: "recieved" }
+        {
+          text: "Hammer time!",
+          user_id: "1",
+          message_type: "recieved",
+          date_message_sent: "2019-09-23"
+        }
       ]
     }
   ],

@@ -15,7 +15,8 @@ function messages(state = [], action) {
                                 {
                                     text: action.text,
                                     user_id: action.user_id,
-                                    message_type: action.message_type
+                                    message_type: action.message_type,
+                                    date_message_sent: action.date_message_sent
                                 }
                             ]
                         });

@@ -1,13 +1,19 @@
+@message-width: 400px;
+
 .recievedMessageDescription {
-  max-width: 400px;
+  max-width: @message-width;
   text-align: right;
 }
 
 .sentMessageDescription {
-  max-width: 400px;
+  max-width: @message-width;
   text-align: left;
 }
 
-.recievedMessageSenderName {
+.recievedMessageSenderNameAndDate {
   text-align: right;
+}
+
+.sentMessageSenderNameAndDate {
+  text-align: left;
 }

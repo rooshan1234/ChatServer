@@ -19,12 +19,21 @@ class SendMessageForm extends React.Component {
   handleSubmit = e => {
     const { text } = this.state;
 
+    let currentDate = new Date();
+    let formattedDate =
+      currentDate.getFullYear() +
+      "-" +
+      (currentDate.getMonth() + 1) +
+      "-" +
+      currentDate.getDate();
+
     e.preventDefault();
     this.props.addMessageToChat(
       this.props.chatId,
       text,
       this.props.recipientUserId,
-      "recieved"
+      "recieved",
+      formattedDate
     );
 
     this.setState({ text: "" });
@@ -59,8 +68,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addMessageToChat: (chatId, text, user_id, message_type) =>
-    dispatch(addMessage(chatId, text, user_id, message_type))
+  addMessageToChat: (chatId, text, user_id, message_type, date_message_sent) =>
+    dispatch(addMessage(chatId, text, user_id, message_type, date_message_sent))
 });
 
 export default withRouter(
