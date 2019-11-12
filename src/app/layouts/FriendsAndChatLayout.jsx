@@ -5,7 +5,7 @@ import { Grid, Card, Image } from "semantic-ui-react";
 import FriendsList from "../chat/friends/FriendsList";
 import Chat from "../chat/Chat";
 
-class ChatContainer extends React.Component {
+class FriendsAndChatLayout extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -26,11 +26,11 @@ class ChatContainer extends React.Component {
                   <Grid.Row>
                     <Grid.Column width={4}>
                       {/* Add the friends list in the grid */}
-                      <FriendsList></FriendsList>
+                      <FriendsList/>
                     </Grid.Column>
                     <Grid.Column width={12}>
                       {/* Add the chat (messages and message form) in the grid */}
-                      <Chat></Chat>
+                      <Chat/>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
@@ -43,4 +43,4 @@ class ChatContainer extends React.Component {
   }
 }
 
-export default withRouter(ChatContainer);
+export default withRouter(FriendsAndChatLayout);

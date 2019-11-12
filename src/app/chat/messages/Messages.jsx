@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Image } from "semantic-ui-react";
+import {List, Image, Segment} from "semantic-ui-react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import styles from "./Messages.less";
@@ -8,6 +8,20 @@ class Messages extends React.Component {
   constructor(props) {
     super(props);
   }
+
+	scrollToEndOfMessages = () => {
+		if (this.messagesEnd) {
+			this.messagesEnd.scrollIntoView({ behavior : "smooth" });
+		}
+	};
+
+	componentDidMount() {
+		this.scrollToEndOfMessages();
+	}
+
+	componentDidUpdate() {
+		this.scrollToEndOfMessages();
+	}
 
   render() {
     let chat = [];
@@ -72,6 +86,8 @@ class Messages extends React.Component {
             );
           }
         })}
+        {/* helper div tag to help with scrolling to the bottom of the messages*/}
+        <div style={{ float : "left", clear : "both" }} ref={(el) => {this.messagesEnd = el;}}/>
       </List>
     );
   }

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import React from "react";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 import App from "./app/main/App.jsx";
 import messages from "./app/reducers/chat-reducers.js";
@@ -104,7 +104,7 @@ const store = createStore(messages, initialState);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router basename="/">
       <Route path="/" component={App}></Route>
     </Router>
   </Provider>,
