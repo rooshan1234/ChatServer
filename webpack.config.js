@@ -48,15 +48,33 @@ module.exports = {
                     loader: "babel-loader"
                 }
             },
+            // transforms semantic-ui libraries without CSS modules
             {
                 test: /\.less$/,
-                // used to convert our imported less files into readable css files
-                // and send them to our MiniCssExtractPlugin to gather into a
-                // single .css file
+                include: /node_modules/,
                 use: [{
                         loader: MiniCssExtractPlugin.loader
                     },
                     "css-loader",
+                    "less-loader"
+                ]
+            },
+            // transforms our own .less files using CSS modules
+            {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                use: [{
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: {
+                                localIdentName: "[path][name]__[local]--[hash:base64:5]"
+                            },
+                            sourceMap: true
+                        }
+                    },
                     "less-loader"
                 ]
             },
@@ -96,7 +114,7 @@ module.exports = {
         // used to bundle all of our css related content into a single file
         // for chuck splitting later
         new MiniCssExtractPlugin({
-            filename: "[name].[hash].css",
+            filename: "/dist/[name].[hash].css",
             chunkFilename: "[id].[hash].css"
         })
     ]

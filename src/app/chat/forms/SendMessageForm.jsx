@@ -3,7 +3,7 @@ import { Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import { addMessage } from "./actions/chat-actions.js";
+import { addMessage } from "../../actions/chat-actions.js";
 
 class SendMessageForm extends React.Component {
   constructor(props) {

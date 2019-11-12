@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu, Input } from "semantic-ui-react";
 import { Switch, Route, NavLink } from "react-router-dom";
-import ChatContainer from "./ChatContainer";
+import ChatContainer from "../layouts/FriendsAndChatLayout";
 
 class App extends React.Component {
   render() {

@@ -1,9 +1,9 @@
 import React from "react";
-import { Route, withRouter, Redirect } from "react-router-dom";
-import { Grid, Card, Segment, Container, Form } from "semantic-ui-react";
+import { withRouter, Redirect } from "react-router-dom";
+import { Grid, Card } from "semantic-ui-react";
 
-import FriendsList from "./FriendsList";
-import Chat from "./Chat.jsx";
+import FriendsList from "../chat/friends/FriendsList";
+import Chat from "../chat/Chat";
 
 class ChatContainer extends React.Component {
   render() {
@@ -19,17 +19,12 @@ class ChatContainer extends React.Component {
                 <Grid centered container columns={2}>
                   <Grid.Row>
                     <Grid.Column width={4}>
+                      {/* Add the friends list in the grid */}
                       <FriendsList></FriendsList>
                     </Grid.Column>
                     <Grid.Column width={12}>
-                      <Route
-                        path={"/chat/:chatId"}
-                        render={props => {
-                          return (
-                            <Chat chatId={props.match.params.chatId}></Chat>
-                          );
-                        }}
-                      ></Route>
+                      {/* Add the chat (messages and message form) in the grid */}
+                      <Chat></Chat>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>

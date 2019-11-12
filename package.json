@@ -31,6 +31,7 @@
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "semantic-ui-less": "^2.4.1",
+    "style-loader": "^1.0.0",
     "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
