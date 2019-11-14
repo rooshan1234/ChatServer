@@ -6,11 +6,11 @@ class FriendsList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { activeItem: "1" };
+    this.state = { activeItem: this.props.chatId || "1" };
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.chatId && prevState.activeItem != this.props.chatId) {
+    if (this.props.chatId && prevState.activeItem !== this.props.chatId) {
       this.setState({ activeItem: this.props.chatId });
     }
   }

@@ -47,7 +47,7 @@ class FriendsAndChatContainer extends React.Component {
         />
 
         {/* Automatically redirect from home page to the first chat */}
-        <Redirect push={true} from="/" to="/chat/1" />
+        <Redirect strict push from="/" to="/chat/1" />
       </Switch>
     );
   }

@@ -20,6 +20,12 @@ class SendMessageForm extends React.Component {
     this.setState({ [name]: checked });
   };
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+      if (this.props.chatId && prevProps.chatId !== this.props.chatId) {
+        this.setState({ text: "", botherEveryone: false });
+      }
+  }
+
   handleSubmit = e => {
     const { text, botherEveryone } = this.state;
 
@@ -53,7 +59,7 @@ class SendMessageForm extends React.Component {
       );
     }
 
-    this.setState({ text: "", botherEveryone: false });
+    this.setState({ text: "" });
   };
 
   render() {
