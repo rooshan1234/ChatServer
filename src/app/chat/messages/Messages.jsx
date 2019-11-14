@@ -1,5 +1,5 @@
 import React from "react";
-import {List, Image, Segment} from "semantic-ui-react";
+import { List, Image, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import styles from "./Messages.less";
@@ -9,19 +9,19 @@ class Messages extends React.Component {
     super(props);
   }
 
-	scrollToEndOfMessages = () => {
-		if (this.messagesEnd) {
-			this.messagesEnd.scrollIntoView({ behavior : "smooth" });
-		}
-	};
+  scrollToEndOfMessages = () => {
+    if (this.messagesEnd) {
+      this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-	componentDidMount() {
-		this.scrollToEndOfMessages();
-	}
+  componentDidMount() {
+    this.scrollToEndOfMessages();
+  }
 
-	componentDidUpdate() {
-		this.scrollToEndOfMessages();
-	}
+  componentDidUpdate() {
+    this.scrollToEndOfMessages();
+  }
 
   render() {
     let chat = [];
@@ -53,12 +53,12 @@ class Messages extends React.Component {
                 <Image floated={"right"} avatar src={user.avatar_url} />
                 <List.Content floated={"right"}>
                   <List.Header
-                    className={styles.recievedMessageSenderNameAndDate}
+                    className={styles.recievedMessageSenderName}
                     as="a"
                   >
                     {user.name}
                   </List.Header>
-                  <div className={styles.recievedMessageSenderNameAndDate}>
+                  <div className={styles.recievedMessageSenderDate}>
                     {message.date_message_sent}
                   </div>
                   <List.Description
@@ -74,8 +74,10 @@ class Messages extends React.Component {
               <List.Item key={index}>
                 <Image floated={"left"} avatar src={user.avatar_url} />
                 <List.Content floated={"left"}>
-                  <List.Header as="a">{user.name}</List.Header>
-                  <div className={styles.sentMessageSenderNameAndDate}>
+                  <List.Header className={styles.sentMessageSenderName} as="a">
+                    {user.name}
+                  </List.Header>
+                  <div className={styles.sentMessageSenderDate}>
                     {message.date_message_sent}
                   </div>
                   <List.Description className={styles.sentMessageDescription}>
@@ -87,7 +89,12 @@ class Messages extends React.Component {
           }
         })}
         {/* helper div tag to help with scrolling to the bottom of the messages*/}
-        <div style={{ float : "left", clear : "both" }} ref={(el) => {this.messagesEnd = el;}}/>
+        <div
+          style={{ float: "left", clear: "both" }}
+          ref={el => {
+            this.messagesEnd = el;
+          }}
+        />
       </List>
     );
   }

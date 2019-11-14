@@ -1,19 +1,39 @@
+/* common CSS */
+
 @message-width: 400px;
+.dateFormatting() {
+  font-size: 0.87em;
+  color: grey;
+}
+
+/* receiving message CSS */
 
 .recievedMessageDescription {
   max-width: @message-width;
   text-align: right;
 }
 
+.recievedMessageSenderName {
+  text-align: right;
+}
+
+.recievedMessageSenderDate {
+  text-align: right;
+  .dateFormatting();
+}
+
+/* sending message CSS */
+
 .sentMessageDescription {
   max-width: @message-width;
   text-align: left;
 }
 
-.recievedMessageSenderNameAndDate {
-  text-align: right;
+.sentMessageSenderName {
+  text-align: left;
 }
 
-.sentMessageSenderNameAndDate {
+.sentMessageSenderDate {
   text-align: left;
+  .dateFormatting();
 }
