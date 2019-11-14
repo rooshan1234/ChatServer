@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import { Switch, Route, NavLink } from "react-router-dom";
-import FriendsAndChatLayout from "../layouts/FriendsAndChatLayout";
+import FriendsAndChatContainer from "../containers/FriendsAndChatContainer";
 
 class App extends React.Component {
   render() {
@@ -24,7 +24,7 @@ class App extends React.Component {
               return <h3>Friends Tab!</h3>;
             }}
           />
-          <Route path={"/"} component={FriendsAndChatLayout}/>
+          <Route path={"/"} component={FriendsAndChatContainer} />
         </Switch>
       </React.Fragment>
     );

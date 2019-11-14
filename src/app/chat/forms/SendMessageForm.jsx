@@ -68,10 +68,6 @@ class SendMessageForm extends React.Component {
             placeholder="Message..."
             value={text}
             onChange={this.handleChange}
-            error={{
-              content: "You must agree to the terms and conditions",
-              pointing: "right"
-            }}
           />
           <Form.Button
             className={styles.sendButton}
