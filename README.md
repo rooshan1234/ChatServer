@@ -13,7 +13,7 @@ Use `npm start` from the root directory to run the `npm dev server` and preview 
 
 <h4> Previewing on github </h4>
 
-Use the following url to view the current latest build `https://rooshan1234.github.io/ChatServer/#/`.
+Use the following url to view the current latest build `https://rooshan1234.github.io/chat-server/#/`.
 
 <h3> Errors during building </h3>
 
