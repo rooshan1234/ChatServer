@@ -1,2 +1,6 @@
 node_modules
+dist
+build
 *.code-workspace
+*.htm
+npm-debug.log
