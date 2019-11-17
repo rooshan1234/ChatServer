@@ -29,11 +29,11 @@ module.exports = {
         // for chuck splitting later
         filename: "[name].bundle.js",
         chunkFilename: "[name].bundle.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "build")
     },
     devServer: {
         // basic config to run the dev server
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, "build"),
         compress: true,
         port: 9000
     },
@@ -114,7 +114,7 @@ module.exports = {
         // used to bundle all of our css related content into a single file
         // for chuck splitting later
         new MiniCssExtractPlugin({
-            filename: "/dist/[name].[hash].css",
+            filename: "/build/[name].[hash].css",
             chunkFilename: "[id].[hash].css"
         })
     ]
