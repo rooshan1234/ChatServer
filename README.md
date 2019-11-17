@@ -1,4 +1,4 @@
-# ChatServer
+# chat-server
 This is a react demo UI chat app with sending messages support.
 
 <h3> Running the application </h3>
