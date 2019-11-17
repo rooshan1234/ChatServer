@@ -5,7 +5,7 @@ This is a react demo UI chat app with sending messages support.
 
 <h4> Local building and manually running (index.html) </h4>
 
-Use `npm run build` from the root directory to generate fully compiled files in the `./dist` directory. Do not touch the `./build` folder as that is for deployment to github.
+Use `npm run build` from the root directory to generate fully compiled files in the `./build` directory.
 
 <h4> Local deployment (to localhost:9000) </h4>
 
