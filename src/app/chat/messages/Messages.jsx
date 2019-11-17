@@ -1,8 +1,10 @@
 import React from "react";
-import { List, Image, Segment } from "semantic-ui-react";
+import { List, Image } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+
 import styles from "./Messages.less";
+import { MessageType } from "./MessageType";
 
 class Messages extends React.Component {
   constructor(props) {
@@ -24,30 +26,24 @@ class Messages extends React.Component {
   }
 
   render() {
-    let chat = [];
     let messages = [];
-
-    // find the chat from the current friend
-    chat = this.props.chats.find(chat => {
-      return chat.id === this.props.chatId;
-    });
+    let user = {};
 
     // ensure that the chat has messages
-    if (chat && chat.messages) {
-      messages = chat.messages;
+    if (this.props.chat && this.props.chat.messages) {
+      messages = this.props.chat.messages;
     }
 
     return (
       <List divided relaxed verticalAlign="middle">
         {/* build the set of messages for the chat selected*/}
         {messages.map((message, index) => {
-          let user = {};
+          // messages sent from recipient to sender
+          if (message.message_type === MessageType.RECIPIENT_TO_SENDER) {
+            user = this.props.users.find(user => {
+              return user.id === this.props.chat.recipient_user_id;
+            });
 
-          user = this.props.users.find(user => {
-            return user.id === message.user_id;
-          });
-
-          if (message.message_type === "recieved") {
             return (
               <List.Item key={index}>
                 <Image floated={"right"} avatar src={user.avatar_url} />
@@ -69,7 +65,13 @@ class Messages extends React.Component {
                 </List.Content>
               </List.Item>
             );
-          } else {
+
+            // messages sent from sender to recipient
+          } else if (message.message_type === MessageType.SENDER_TO_RECIPIENT) {
+            user = this.props.users.find(user => {
+              return user.id === this.props.chat.sender_user_id;
+            });
+
             return (
               <List.Item key={index}>
                 <Image floated={"left"} avatar src={user.avatar_url} />
@@ -101,13 +103,7 @@ class Messages extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  chats: state.chats,
   users: state.users
 });
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    null
-  )(Messages)
-);
+export default withRouter(connect(mapStateToProps, null)(Messages));

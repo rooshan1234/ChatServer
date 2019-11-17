@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { addMessage } from "../../actions/chat-actions.js";
+import { MessageType } from "../messages/MessageType.jsx";
+import { getCurrentDateFormatted } from "../formatters/DateFormatters.js";
 import styles from "./SendMessageForm.less";
 
 class SendMessageForm extends React.Component {
@@ -21,41 +23,33 @@ class SendMessageForm extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-      if (this.props.chatId && prevProps.chatId !== this.props.chatId) {
-        this.setState({ text: "", botherEveryone: false });
-      }
+    if (this.props.chat.id && prevProps.chat.id !== this.props.chat.id) {
+      this.setState({ text: "", botherEveryone: false });
+    }
   }
 
   handleSubmit = e => {
     const { text, botherEveryone } = this.state;
 
-    let currentDate = new Date();
-    let formattedDate =
-      currentDate.getFullYear() +
-      "-" +
-      (currentDate.getMonth() + 1) +
-      "-" +
-      currentDate.getDate();
-
     e.preventDefault();
+
+    let currentDate = getCurrentDateFormatted();
 
     if (botherEveryone) {
       this.props.chats.map(chat => {
         this.props.addMessageToChat(
           chat.id,
           text,
-          this.props.recipientUserId,
-          "recieved",
-          formattedDate
+          MessageType.RECIPIENT_TO_SENDER,
+          currentDate
         );
       });
     } else {
       this.props.addMessageToChat(
-        this.props.chatId,
+        this.props.chat.id,
         text,
-        this.props.recipientUserId,
-        "recieved",
-        formattedDate
+        MessageType.RECIPIENT_TO_SENDER,
+        currentDate
       );
     }
 
@@ -97,18 +91,15 @@ class SendMessageForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  recipientUserId: state.recipient_user_id,
+  // used for sending messages to all
   chats: state.chats
 });
 
 const mapDispatchToProps = dispatch => ({
-  addMessageToChat: (chatId, text, user_id, message_type, date_message_sent) =>
-    dispatch(addMessage(chatId, text, user_id, message_type, date_message_sent))
+  addMessageToChat: (chatId, text, message_type, date_message_sent) =>
+    dispatch(addMessage(chatId, text, message_type, date_message_sent))
 });
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(SendMessageForm)
+  connect(mapStateToProps, mapDispatchToProps)(SendMessageForm)
 );

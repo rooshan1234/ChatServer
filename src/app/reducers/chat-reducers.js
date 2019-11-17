@@ -5,7 +5,7 @@ function messages(state = [], action) {
         case ADD_MESSAGE:
             return Object.assign({}, state, {
                 chats: state.chats.map(chat => {
-                    if (chat.id === action.chat_id) {
+                    if (chat.id === action.chatId) {
                         // chat is found
                         // we don't mutate the state here as per the rules of redux-store
                         return Object.assign({}, chat, {
@@ -14,7 +14,6 @@ function messages(state = [], action) {
                                 ...chat.messages,
                                 {
                                     text: action.text,
-                                    user_id: action.user_id,
                                     message_type: action.message_type,
                                     date_message_sent: action.date_message_sent
                                 }
